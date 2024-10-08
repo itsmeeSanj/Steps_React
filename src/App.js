@@ -1,6 +1,18 @@
 import React from "react";
+import Assignment from "./Components/Assignment";
 
-function App() {
+export default function App() {
+  return (
+    <div>
+      {/* <Steps /> */}
+
+      {/*  */}
+      <Assignment />
+    </div>
+  );
+}
+
+function Steps() {
   const [step, setStep] = React.useState(1);
   const [isOpen, setIsOpen] = React.useState(true);
 
@@ -11,18 +23,17 @@ function App() {
   ];
 
   const prevButton = () => {
-    step > 1 && setStep(step - 1);
+    step > 1 && setStep((step) => step - 1);
   };
 
   const nextButton = () => {
-    step < 3 && setStep(step + 1);
+    step < 3 && setStep((step) => step + 1);
   };
 
-  console.log(step, messages.length);
-
   return (
-    <>
-      <button className='close' onClick={() => setIsOpen(!isOpen)}>
+    <div>
+      {/* assigning callback function to change the correct state */}
+      <button className='close' onClick={() => setIsOpen((isOpen) => !isOpen)}>
         {!isOpen ? <>&amp;</> : <>&times;</>}
 
         {/* &#215; */}
@@ -62,8 +73,8 @@ function App() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
-export default App;
+// export default App;
